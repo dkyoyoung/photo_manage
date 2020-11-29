@@ -1,6 +1,7 @@
 class PhotoManageController < ApplicationController
   layout 'logout'
   before_action :get_new_photo, only: [:new, :create]
+  before_action :get_photos, only: [:index]
 
   def index
   end
@@ -24,5 +25,9 @@ class PhotoManageController < ApplicationController
 
   def get_new_photo
     @photo ||= current_user.photos.new
+  end
+
+  def get_photos
+    @photos = current_user.photos
   end
 end
