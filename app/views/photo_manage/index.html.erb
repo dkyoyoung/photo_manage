@@ -2,6 +2,10 @@
 <br>
 <%= button_to '写真アップロード', { controller: 'photo_manage', action: 'new' }, { method: :get } %>
 <br>
+
+<%= button_to 'MyTwitterAPPと連携', { controller: 'photo_manage', action: 'oauth' }, { method: :get } %>
+<br>
+
 <% @photos.each do |photo| %>
    <%= photo.title %>
    <br>

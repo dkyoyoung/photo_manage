@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get    '/photo_manage',   to: 'photo_manage#index'
   get    '/photo_manage/new',   to: 'photo_manage#new'
+  get    '/photo_manage/ouath',   to: 'photo_manage#oauth'
+  get    '/oauth/callback',   to: 'photo_manage#callback'
   post   '/photo_manage',   to: 'photo_manage#create'
 end
