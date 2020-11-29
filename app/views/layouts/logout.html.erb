@@ -1,0 +1,6 @@
+<html>
+  <%= button_to 'ログアウト', { controller: 'sessions', action: 'destroy' }, { method: :delete } %>
+  <body>
+    <%= yield %>
+  </body>
+</html>
