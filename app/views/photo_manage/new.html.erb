@@ -1,0 +1,21 @@
+<h1>写真アップロード</h1>
+
+<% @photo.errors.full_messages.each do |msg| %>
+  <div class="alert alert-danger">
+    <%= msg %>
+  </div>
+<% end %>
+
+<%= form_for @photo, url: photo_manage_path do |f| %>
+  <%= f.label :title %>
+  <br>
+  <%= f.text_field :title %>
+  <br>
+  <%= f.label :photo %>
+  <br>
+  <%= f.file_field :image %>
+  <br>
+  <%= f.submit 'アップロードする'%>
+  <br>
+<% end %>
+<%= button_to 'キャンセル', { controller: 'photo_manage', action: 'index' }, { method: :get } %>
