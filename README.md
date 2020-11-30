@@ -37,3 +37,24 @@ bundle update
 bundle exec rails db:create db:migrate RAILS_ENV=development
 bundle exec rake db:seed
 ```
+
+### ログインユーザー
+```
+user_id: test
+password: testtest
+```
+
+### client_id とclient_secretに関して
+時間上の都合で別管理はやってない、以下のところに書き込む
+
+```
+app/controllers/photo_manage_controller.rb#L16
+app/controllers/photo_manage_controller.rb#L30
+app/controllers/photo_manage_controller.rb#L31
+```
+
+### 時間上の都合でTODO
+* i18n整理
+* spec
+* client_id とclient_secretの別管理
+* 画面整理いろいろ
