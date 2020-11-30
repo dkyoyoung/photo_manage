@@ -58,3 +58,6 @@ app/controllers/photo_manage_controller.rb#L31
 * spec
 * client_id とclient_secretの別管理
 * 画面整理いろいろ
+
+### かかった時間
+* 8時間ほど
