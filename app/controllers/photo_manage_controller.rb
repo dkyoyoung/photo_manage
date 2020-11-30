@@ -4,7 +4,7 @@ class PhotoManageController < ApplicationController
   layout 'logout'
   before_action :get_new_photo, only: [:new, :create]
   before_action :get_photos, only: [:index]
-  before_action :get_auth, only: [:index, :callback]
+  before_action :get_auth, only: [:index, :callback, :tweets]
 
   def index
   end
@@ -52,6 +52,33 @@ class PhotoManageController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def tweets
+    url = "https://arcane-ravine-29792.herokuapp.com/api/tweets"
+    uri = URI.parse(url)
+    http = Net::HTTP.new(uri.host, uri.port)
+
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+    req = Net::HTTP::Post.new(uri.path)
+
+    req["Authorization"] = "bearer #{@auth.token}"
+    req["Content-Type"] = "application/json"
+
+    photo = Photo.find(params[:photo_id])
+
+    data = {
+      "text": photo.title,
+      "url": "http://localhost:3000#{photo.image.url}"
+    }.to_json
+
+    req.body = data
+
+    http.request(req)
+
+    redirect_to root_url
   end
 
   private

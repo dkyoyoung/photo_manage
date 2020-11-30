@@ -12,8 +12,9 @@
   <br>
 <% end %>
 <% @photos.each do |photo| %>
-   <%= photo.title %>
-   <br>
-   <%= image_tag photo.image.url %>
-   <br>
+  <%= photo.title %>
+  <br>
+  <%= image_tag photo.image.url %>
+  <br>
+  <%= button_to 'ツイートする', { controller: 'photo_manage', action: 'tweets' }, { method: :get, params: { photo_id: photo.id } } %>  
 <% end %>

@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get    '/photo_manage/ouath',   to: 'photo_manage#oauth'
   get    '/oauth/callback',   to: 'photo_manage#callback'
   post   '/photo_manage',   to: 'photo_manage#create'
+  get    '/photo_manage/tweets',   to: 'photo_manage#tweets'
 end
